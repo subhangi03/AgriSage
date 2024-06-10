@@ -1,0 +1,4 @@
+Requirement already satisfied: scipy in c:\users\subha\appdata\local\programs\python\python312\lib\site-packages (1.13.1)
+Requirement already satisfied: numpy<2.3,>=1.22.4 in c:\users\subha\appdata\local\programs\python\python312\lib\site-packages (from 
+scipy) (1.26.4)
+PS C:\Users\subha\Desktop\AgriSage> pipip install scipy
