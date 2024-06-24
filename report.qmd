@@ -2,7 +2,7 @@
 title: "Report:Agrisage"
 output: html
 ---
-#Introduction
+## Introduction
 
 We have a dataset that showcases what crop is best suited for a combination of different features(quantitatively) like Nitrogen, Phosphorus, Potassium and so on.
 
@@ -18,7 +18,7 @@ raw_data.info()
 target = 'Crop'
 ```
 
-#Exploratory Data Analysis (EDA)
+## Exploratory Data Analysis (EDA)
 
 ```{python}
 def plot_counts(data, features, hue=None):
@@ -71,12 +71,9 @@ plot_counts(raw_data, [target])
 ```
 
 The above figure helps us in a clear visualization of our data. 
-
-1) Quantification: We have 22 possible targets that is crops for our datset and since each crop has a 100 samples, we have 2200 samples.
-
-2) Class Balance: The fact that each crop has an equal number of samples (100) suggests that the dataset is balanced. This is beneficial for training machine learning models as it can prevent bias towards any particular class.
-
-3) Granularity: In a classification problem like the one presented here, having 100 samples per target allows for a detailed representation of each class.
+- 1) Quantification: We have 22 possible targets that is crops for our datset and since each crop has a 100 samples, we have 2200 samples.
+- 2) Class Balance: The fact that each crop has an equal number of samples (100) suggests that the dataset is balanced. This is beneficial for training machine learning models as it can prevent bias towards any particular class.
+- 3) Granularity: In a classification problem like the one presented here, having 100 samples per target allows for a detailed representation of each class.
 
 However, the number of samples is a subject to change after further EDA.
 
@@ -87,12 +84,11 @@ plt.show()
 ```
 
 The above figures tells us that Phosphorus and Potassium have a high positive correation. This can be due to several underlying reasons related to soil chemistry, plant physiology, and farming practices. Here are some common reasons why these two nutrients might show correlation:
-1) Soil Composition: Phosphorus (P) and potassium (K) availability in soil can be influenced by similar factors such as soil type, pH levels, and organic matter content.
-2) Fertilizer Application: Farmers often apply fertilizers that contain both phosphorus and potassium together. This simultaneous application can lead to their concentrations being correlated in the soil.
-3) Sampling and Analysis: Sometimes, the correlation observed could be due to the way samples are collected or analyzed. If samples are taken from similar locations or depths within a field, they may show similar nutrient profiles.
-4) Environmental Factors: Environmental conditions such as rainfall, temperature, and humidity can affect the mobility and availability of both phosphorus and potassium in the soil. Similar environmental impacts can result in correlated values. In our datset since these factors would be same for a particular area, the correlation is understandable.
+- 1) Soil Composition: Phosphorus (P) and potassium (K) availability in soil can be influenced by similar factors such as soil type, pH levels, and organic matter content.
+- 2) Fertilizer Application: Farmers often apply fertilizers that contain both phosphorus and potassium together. This simultaneous application can lead to their concentrations being correlated in the soil.
+- 3) Sampling and Analysis: Sometimes, the correlation observed could be due to the way samples are collected or analyzed. If samples are taken from similar locations or depths within a field, they may show similar nutrient profiles.
+- 4) Environmental Factors: Environmental conditions such as rainfall, temperature, and humidity can affect the mobility and availability of both phosphorus and potassium in the soil. Similar environmental impacts can result in correlated values. In our datset since these factors would be same for a particular area, the correlation is understandable.
 
 Highly correlated variables can adversely affect the performance of predictive models, particularly in regression and classification tasks:
-1) It can lead to multicollinearity, where the coefficients become unstable and difficult to interpret in regression models.
-2) It can also lead to OVERFITTING occurs when the model captures noise or random fluctuations rather than underlying patterns.
-
+- 1) It can lead to multicollinearity, where the coefficients become unstable and difficult to interpret in regression models.
+- 2) It can also lead to OVERFITTING occurs when the model captures noise or random fluctuations rather than underlying patterns.
