@@ -18,18 +18,6 @@ y_test = pd.read_csv(r'C:\Users\subha\Desktop\AgriSage\Notebooks\y_test.csv')
 # Streamlit app title
 st.title('AgriSage')
 
-# Initialize session state for inputs if not already set
-if 'inputs' not in st.session_state:
-    st.session_state.inputs = {
-        'Nitrogen': 0,
-        'Phosphorus': 0,
-        'Potassium': 0,
-        'Temperature': 0.0,
-        'Humidity': 0.0,
-        'pH_Value': 0.0,
-        'Rainfall': 0.0
-    }
-
 # Layout with two columns
 col1, col2 = st.columns(2)
 
@@ -37,26 +25,33 @@ with col1:
     # Input fields for features
     st.header('Input the following features:')
     
-    nitrogen = st.number_input('Nitrogen:', value=st.session_state.inputs['Nitrogen'], min_value=0, max_value=100, key='nitrogen_number_input')
-    nitrogen_slider = st.slider('Nitrogen:', min_value=0, max_value=100, value=nitrogen, key='nitrogen_slider')
+    st.write('Nitrogen:')
+    nitrogen = st.number_input('', value=0, min_value=0, max_value=100, key='nitrogen_number_input')
+    nitrogen_slider = st.slider('', min_value=0, max_value=100, value=nitrogen, key='nitrogen_slider', label_visibility='hidden')
     
-    phosphorus = st.number_input('Phosphorus:', value=st.session_state.inputs['Phosphorus'], min_value=0, max_value=100, key='phosphorus_number_input')
-    phosphorus_slider = st.slider('Phosphorus:', min_value=0, max_value=100, value=phosphorus, key='phosphorus_slider')
+    st.write('Phosphorus:')
+    phosphorus = st.number_input('', value=0, min_value=0, max_value=100, key='phosphorus_number_input')
+    phosphorus_slider = st.slider('', min_value=0, max_value=100, value=phosphorus, key='phosphorus_slider', label_visibility='hidden')
     
-    potassium = st.number_input('Potassium:', value=st.session_state.inputs['Potassium'], min_value=0, max_value=100, key='potassium_number_input')
-    potassium_slider = st.slider('Potassium:', min_value=0, max_value=100, value=potassium, key='potassium_slider')
+    st.write('Potassium:')
+    potassium = st.number_input('', value=0, min_value=0, max_value=100, key='potassium_number_input')
+    potassium_slider = st.slider('', min_value=0, max_value=100, value=potassium, key='potassium_slider', label_visibility='hidden')
     
-    temperature = st.number_input('Temperature (°C):', value=st.session_state.inputs['Temperature'], min_value=0.0, max_value=50.0, key='temperature_number_input')
-    temperature_slider = st.slider('Temperature (°C):', min_value=0.0, max_value=50.0, value=temperature, key='temperature_slider')
+    st.write('Temperature (°C):')
+    temperature = st.number_input('', value=0.0, min_value=0.0, max_value=50.0, key='temperature_number_input')
+    temperature_slider = st.slider('', min_value=0.0, max_value=50.0, value=temperature, key='temperature_slider', label_visibility='hidden')
     
-    humidity = st.number_input('Humidity (%):', value=st.session_state.inputs['Humidity'], min_value=0.0, max_value=100.0, key='humidity_number_input')
-    humidity_slider = st.slider('Humidity (%):', min_value=0.0, max_value=100.0, value=humidity, key='humidity_slider')
+    st.write('Humidity (%):')
+    humidity = st.number_input('', value=0.0, min_value=0.0, max_value=100.0, key='humidity_number_input')
+    humidity_slider = st.slider('', min_value=0.0, max_value=100.0, value=humidity, key='humidity_slider', label_visibility='hidden')
     
-    ph_value = st.number_input('pH Value:', value=st.session_state.inputs['pH_Value'], min_value=0.0, max_value=14.0, key='ph_value_number_input')
-    ph_value_slider = st.slider('pH Value:', min_value=0.0, max_value=14.0, value=ph_value, key='ph_value_slider')
+    st.write('pH Value:')
+    ph_value = st.number_input('', value=0.0, min_value=0.0, max_value=14.0, key='ph_value_number_input')
+    ph_value_slider = st.slider('', min_value=0.0, max_value=14.0, value=ph_value, key='ph_value_slider', label_visibility='hidden')
     
-    rainfall = st.number_input('Rainfall (mm):', value=st.session_state.inputs['Rainfall'], min_value=0.0, max_value=300.0, key='rainfall_number_input')
-    rainfall_slider = st.slider('Rainfall (mm):', min_value=0.0, max_value=300.0, value=rainfall, key='rainfall_slider')
+    st.write('Rainfall (mm):')
+    rainfall = st.number_input('', value=0.0, min_value=0.0, max_value=300.0, key='rainfall_number_input')
+    rainfall_slider = st.slider('', min_value=0.0, max_value=300.0, value=rainfall, key='rainfall_slider', label_visibility='hidden')
 
     # Use slider values if adjusted, otherwise use number input values
     nitrogen = nitrogen_slider
@@ -130,18 +125,16 @@ with col1:
         # Get the actual crop
         actual_crop = lbl_encoder.inverse_transform([actual_value])[0]
 
-        # Update input values in session state
-        st.session_state.inputs = {
-            'Nitrogen': random_sample['Nitrogen'].values[0],
-            'Phosphorus': random_sample['Phosphorus'].values[0],
-            'Potassium': random_sample['Potassium'].values[0],
-            'Temperature': random_sample['Temperature'].values[0],
-            'Humidity': random_sample['Humidity'].values[0],
-            'pH_Value': random_sample['pH_Value'].values[0],
-            'Rainfall': random_sample['Rainfall'].values[0]
-        }
+        # Update the inputs with the random sample values
+        st.session_state.nitrogen_slider = random_sample.iloc[0]['Nitrogen']
+        st.session_state.phosphorus_slider = random_sample.iloc[0]['Phosphorus']
+        st.session_state.potassium_slider = random_sample.iloc[0]['Potassium']
+        st.session_state.temperature_slider = random_sample.iloc[0]['Temperature']
+        st.session_state.humidity_slider = random_sample.iloc[0]['Humidity']
+        st.session_state.ph_value_slider = random_sample.iloc[0]['pH_Value']
+        st.session_state.rainfall_slider = random_sample.iloc[0]['Rainfall']
 
-        # Rerun to update the inputs
+        # Rerun the app to update the inputs
         st.rerun()
 
         with col2:
