@@ -1,9 +1,13 @@
 ---
 title: "Report:Agrisage"
+author: "Subhangi Pandey"
 output: html
 format: 
   html:
     code-fold: true
+    toc: true
+    toc-depth: 2 
+    toc-title: "Contents"
 ---
 ## Abstract
 
@@ -517,3 +521,12 @@ def plot_confusion_matrix(y_test, predictions):
 plot_confusion_matrix(y_test, y_hat)
 ```
 
+## Conclusion:
+
+The primary objective of this analysis was to develop a robust predictive model for crop prediction. The Random Forest model achieved an accuracy of 99.4%. This results indicate that the model is effective in predicting crop yields. The model's performance was validated using cross-validation techniques, yielding consistent results across different folds.
+
+Compared to other models such as Logistic Regression and Decision Trees, the Random Forest model demonstrated superior performance.
+
+The implementation of this Random Forest model can significantly improve agricultural planning and decision-making, leading to better resource allocation. For instance, the model can help in accurately predicting crop yields, thereby enhancing operational efficiency. In conclusion, the Random Forest model developed in this analysis provides a powerful tool for predicting crop yields, with substantial potential for practical application in agriculture. 
+
+An app has also been developed which takes user input for features and then predicts the top five crops. The app also allows us to validate the model chosen by generating random values from the test dataset. 

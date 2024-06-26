@@ -6,14 +6,14 @@ import joblib
 import random
 
 # Load the trained model
-model = joblib.load(r'C:\Users\subha\Desktop\AgriSage\Notebooks\crop_model.pkl')
+model = joblib.load(r'C:\Users\subha\Desktop\AgriSage\StreamlitApp\crop_model.pkl')
 # Load the preprocessor and label encoder
-preprocessor = joblib.load(r'C:\Users\subha\Desktop\AgriSage\Notebooks\preprocessor.pkl')
-lbl_encoder = joblib.load(r'C:\Users\subha\Desktop\AgriSage\Notebooks\label_encoder.pkl')
+preprocessor = joblib.load(r'C:\Users\subha\Desktop\AgriSage\StreamlitApp\preprocessor.pkl')
+lbl_encoder = joblib.load(r'C:\Users\subha\Desktop\AgriSage\StreamlitApp\label_encoder.pkl')
 
 # Load the test data
-x_test = pd.read_csv(r'C:\Users\subha\Desktop\AgriSage\Notebooks\x_test.csv')
-y_test = pd.read_csv(r'C:\Users\subha\Desktop\AgriSage\Notebooks\y_test.csv')
+x_test = pd.read_csv(r'C:\Users\subha\Desktop\AgriSage\StreamlitApp\x_test.csv')
+y_test = pd.read_csv(r'C:\Users\subha\Desktop\AgriSage\StreamlitApp\y_test.csv')
 
 # Streamlit app title
 st.title('AgriSage')

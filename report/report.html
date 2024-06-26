@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Subhangi Pandey">
 
 <title>Report:Agrisage</title>
 <style>
@@ -74,10 +75,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="fullcontent">
+<body>
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">Abstract</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#exploratory-data-analysis-eda" id="toc-exploratory-data-analysis-eda" class="nav-link" data-scroll-target="#exploratory-data-analysis-eda">Exploratory Data Analysis (EDA)</a></li>
+  <li><a href="#handling-outliers" id="toc-handling-outliers" class="nav-link" data-scroll-target="#handling-outliers">Handling Outliers</a></li>
+  <li><a href="#label-encoding" id="toc-label-encoding" class="nav-link" data-scroll-target="#label-encoding">Label Encoding</a></li>
+  <li><a href="#model-comparison" id="toc-model-comparison" class="nav-link" data-scroll-target="#model-comparison">Model comparison:</a></li>
+  <li><a href="#finalizing-model" id="toc-finalizing-model" class="nav-link" data-scroll-target="#finalizing-model">Finalizing model:</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion:</a></li>
+  </ul>
+</nav>
+</div>
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
@@ -89,6 +105,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Subhangi Pandey </p>
+          </div>
+  </div>
     
   
     
@@ -109,7 +131,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>We have a dataset that showcases what crop is best suited for a combination of different features(quantitatively) like Nitrogen, Phosphorus, Potassium and so on.</p>
-<div id="fd7b6215" class="cell" data-execution_count="1">
+<div id="57114c6f" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -130,7 +152,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="3126886e" class="cell" data-execution_count="2">
+<div id="a2fc4c93" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>file_path<span class="op">=</span><span class="vs">r"C:\Users\subha\Desktop\AgriSage\Data\Crop_Recommendation.csv"</span></span>
@@ -158,7 +180,7 @@ dtypes: float64(4), int64(3), object(1)
 memory usage: 137.6+ KB</code></pre>
 </div>
 </div>
-<div id="afce948c" class="cell" data-execution_count="3">
+<div id="6b444299" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
@@ -173,7 +195,7 @@ memory usage: 137.6+ KB</code></pre>
 </section>
 <section id="exploratory-data-analysis-eda" class="level2">
 <h2 class="anchored" data-anchor-id="exploratory-data-analysis-eda">Exploratory Data Analysis (EDA)</h2>
-<div id="37eab1b6" class="cell" data-execution_count="4">
+<div id="0bef81a4" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_counts(data, features, hue<span class="op">=</span><span class="va">None</span>):</span>
@@ -242,7 +264,7 @@ memory usage: 137.6+ KB</code></pre>
 <li><p>Granularity: In a classification problem like the one presented here, having 100 samples per target allows for a detailed representation of each class.</p></li>
 </ol>
 <p>However, the number of samples is a subject to change after further EDA.</p>
-<div id="47076dc9" class="cell" data-execution_count="5">
+<div id="d851897e" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">10</span>))</span>
@@ -269,7 +291,7 @@ memory usage: 137.6+ KB</code></pre>
 <li><p>It can lead to multicollinearity, where the coefficients become unstable and difficult to interpret in regression models.</p></li>
 <li><p>It can also lead to OVERFITTING occurs when the model captures noise or random fluctuations rather than underlying patterns.</p></li>
 </ol>
-<div id="63c60369" class="cell" data-execution_count="6">
+<div id="e20a9156" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> dist_plot(data, feature_list):</span>
@@ -332,7 +354,7 @@ memory usage: 137.6+ KB</code></pre>
 <section id="handling-outliers" class="level2">
 <h2 class="anchored" data-anchor-id="handling-outliers">Handling Outliers</h2>
 <p>The Interquartile Range (IQR) method is a common statistical technique used to identify and handle outliers in a dataset. The IQR is the range between the first quartile (Q1) and the third quartile (Q3) of the dataset.</p>
-<div id="19539963" class="cell" data-execution_count="7">
+<div id="de1195ce" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Q1<span class="op">=</span> a1[features].quantile(<span class="fl">0.25</span>)</span>
@@ -374,7 +396,7 @@ Rainfall       59.715822
 dtype: float64</code></pre>
 </div>
 </div>
-<div id="3213d892" class="cell" data-execution_count="8">
+<div id="6bf9445a" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>lower_bound<span class="op">=</span> Q1 <span class="op">-</span> <span class="fl">1.5</span> <span class="op">*</span> IQR</span>
@@ -404,7 +426,7 @@ Rainfall       213.841241
 dtype: float64</code></pre>
 </div>
 </div>
-<div id="9bb566b0" class="cell" data-execution_count="9">
+<div id="dabe34c2" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>outliers <span class="op">=</span> (a1[features] <span class="op">&lt;</span> lower_bound) <span class="op">|</span> (a1[features] <span class="op">&gt;</span> upper_bound)</span>
@@ -435,7 +457,7 @@ memory usage: 110.6+ KB</code></pre>
 </div>
 </div>
 <p>These are the number of crop samples left after removing the outliers along with graph:</p>
-<div id="ed9adf6a" class="cell" data-execution_count="10">
+<div id="5a963868" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>a1_no_outliers[target].value_counts()</span>
@@ -452,7 +474,7 @@ memory usage: 110.6+ KB</code></pre>
 <p>It is clear to us that we cannot remove outliers as it leads to serious reduction of samples for some crops like rice and papaya. Reducing the number of samples can decrease the statistical power of our analysis. With fewer samples, the ability to detect true patterns or relationships in the data diminishes.</p>
 <p>Retaining outliers might provide a more comprehensive understanding of the factors influencing crop yield, leading to more robust and reliable predictions.</p>
 <p>We transform the data:</p>
-<div id="b6cab9b8" class="cell" data-execution_count="11">
+<div id="bc15faa7" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> transformation_method(data, feature):</span>
@@ -521,7 +543,7 @@ memory usage: 110.6+ KB</code></pre>
 <span id="cb16-64"><a href="#cb16-64" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="cad4560b" class="cell" data-execution_count="12">
+<div id="f7ec2898" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>transformation_method(a1, features[<span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -537,7 +559,7 @@ memory usage: 110.6+ KB</code></pre>
 </div>
 </div>
 </div>
-<div id="2fa7547f" class="cell" data-execution_count="13">
+<div id="892c6d82" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>transformation_method(a1, features[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -550,7 +572,7 @@ memory usage: 110.6+ KB</code></pre>
 </div>
 </div>
 </div>
-<div id="305ec140" class="cell" data-execution_count="14">
+<div id="f5e2a49d" class="cell" data-execution_count="14">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>transformation_method(a1, features[<span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -563,7 +585,7 @@ memory usage: 110.6+ KB</code></pre>
 </div>
 </div>
 </div>
-<div id="0a705173" class="cell" data-execution_count="15">
+<div id="a967ffe2" class="cell" data-execution_count="15">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>transformation_method(a1, features[<span class="dv">3</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -576,7 +598,7 @@ memory usage: 110.6+ KB</code></pre>
 </div>
 </div>
 </div>
-<div id="7deaaa18" class="cell" data-execution_count="16">
+<div id="420dfbf5" class="cell" data-execution_count="16">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>transformation_method(a1, features[<span class="dv">5</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -591,7 +613,7 @@ memory usage: 110.6+ KB</code></pre>
 </div>
 <p>It is evident that the quantile transformation graph looks the best so we’ll use quantile transformation on the needed data.</p>
 <p>However in some of the graphs above, we see that some transformations result in double peaks. This might indicate that crops might be devided in two groups for each feature. To understand this assumption of ours, we can graphs that show crops vs features, i.e.&nbsp;how different crops behave to different values of features.</p>
-<div id="4d3305d0" class="cell" data-execution_count="17">
+<div id="a1374aa5" class="cell" data-execution_count="17">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>n_cols <span class="op">=</span> <span class="dv">2</span></span>
@@ -620,7 +642,7 @@ memory usage: 110.6+ KB</code></pre>
 </section>
 <section id="label-encoding" class="level2">
 <h2 class="anchored" data-anchor-id="label-encoding">Label Encoding</h2>
-<div id="46d2621e" class="cell" data-execution_count="18">
+<div id="b1bd7042" class="cell" data-execution_count="18">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> transform_data_le(df, target, num_features):</span>
@@ -697,7 +719,7 @@ Encoded Value: 21, Original Label: Watermelon</code></pre>
 </section>
 <section id="model-comparison" class="level2">
 <h2 class="anchored" data-anchor-id="model-comparison">Model comparison:</h2>
-<div id="b34c2c21" class="cell" data-execution_count="19">
+<div id="25bd2d95" class="cell" data-execution_count="19">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> StratifiedKFold, cross_validate</span>
@@ -764,26 +786,26 @@ Encoded Value: 21, Original Label: Watermelon</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>           Acc Mean  Acc STD
 Algorithm                   
-RFC           0.992    0.005
-ABC           0.181    0.002
-GBC           0.988    0.009
+RFC           0.993    0.005
+ABC           0.159    0.022
+GBC           0.987    0.009
 LR            0.976    0.012
 SVC           0.982    0.014
-DTC           0.984    0.013
+DTC           0.986    0.008
 KNN           0.972    0.013
 GNB           0.994    0.005
-XGB           0.928    0.012
+XGB           0.929    0.018
 results_acc_df:       0     1     2     3     4     5     6     7     8
-0 0.989 0.182 0.972 0.972 0.983 0.983 0.966 0.994 0.920
-1 0.989 0.182 0.989 0.989 0.989 0.994 0.972 0.989 0.926
-2 1.000 0.182 0.989 0.989 1.000 0.983 0.994 1.000 0.932
-3 0.994 0.182 0.989 0.994 0.983 0.977 0.972 0.994 0.926
-4 1.000 0.182 1.000 0.983 0.989 0.994 0.972 1.000 0.932
-5 0.989 0.182 0.989 0.966 1.000 1.000 0.983 0.989 0.920
-6 0.989 0.182 0.977 0.960 0.983 0.983 0.983 0.994 0.943
-7 0.994 0.182 1.000 0.972 0.972 1.000 0.972 1.000 0.949
-8 0.983 0.176 0.994 0.977 0.972 0.955 0.955 0.989 0.903
-9 0.994 0.182 0.983 0.960 0.949 0.972 0.949 0.989 0.932</code></pre>
+0 0.989 0.136 0.972 0.972 0.983 0.983 0.966 0.994 0.915
+1 0.994 0.136 0.983 0.989 0.989 0.994 0.972 0.989 0.938
+2 1.000 0.182 0.989 0.989 1.000 0.983 0.994 1.000 0.949
+3 0.994 0.182 0.983 0.994 0.983 0.983 0.972 0.994 0.955
+4 1.000 0.182 1.000 0.983 0.989 0.989 0.972 1.000 0.949
+5 0.989 0.136 0.989 0.966 1.000 0.994 0.983 0.989 0.920
+6 0.989 0.136 0.977 0.960 0.983 0.983 0.983 0.994 0.926
+7 1.000 0.182 1.000 0.972 0.972 1.000 0.972 1.000 0.903
+8 0.989 0.176 0.994 0.977 0.972 0.972 0.955 0.989 0.903
+9 0.989 0.136 0.983 0.960 0.949 0.977 0.949 0.989 0.932</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
@@ -794,7 +816,7 @@ results_acc_df:       0     1     2     3     4     5     6     7     8
 </div>
 </div>
 <p>We can clearly discard Ada Boost Classifier.</p>
-<div id="583ccc5a" class="cell" data-execution_count="20">
+<div id="8bf5dd54" class="cell" data-execution_count="20">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>selected_models <span class="op">=</span> []</span>
@@ -812,24 +834,24 @@ results_acc_df:       0     1     2     3     4     5     6     7     8
 <div class="cell-output cell-output-stdout">
 <pre><code>           Acc Mean  Acc STD
 Algorithm                   
-RFC           0.993    0.006
+RFC           0.994    0.005
 GBC           0.988    0.009
 LR            0.976    0.012
 SVC           0.982    0.014
-DTC           0.985    0.010
+DTC           0.986    0.009
 KNN           0.972    0.013
 GNB           0.994    0.005
-XGB           0.930    0.016
+XGB           0.922    0.022
 results_acc_df:       0     1     2     3     4     5     6     7
-0 0.989 0.972 0.972 0.983 0.977 0.966 0.994 0.903
+0 0.989 0.972 0.972 0.983 0.989 0.966 0.994 0.903
 1 0.994 0.989 0.989 0.989 0.994 0.972 0.989 0.938
-2 1.000 0.989 0.989 1.000 0.989 0.994 1.000 0.938
-3 0.994 0.989 0.994 0.983 0.972 0.972 0.994 0.949
-4 1.000 1.000 0.983 0.989 0.994 0.972 1.000 0.949
-5 0.989 0.989 0.966 1.000 0.994 0.983 0.989 0.926
+2 1.000 0.989 0.989 1.000 0.989 0.994 1.000 0.915
+3 0.994 0.983 0.994 0.983 0.983 0.972 0.994 0.949
+4 1.000 1.000 0.983 0.989 0.989 0.972 1.000 0.955
+5 0.989 0.989 0.966 1.000 0.994 0.983 0.989 0.903
 6 0.989 0.977 0.960 0.983 0.983 0.983 0.994 0.943
-7 1.000 1.000 0.972 0.972 1.000 0.972 1.000 0.938
-8 0.983 0.994 0.977 0.972 0.972 0.955 0.989 0.903
+7 1.000 1.000 0.972 0.972 1.000 0.972 1.000 0.920
+8 0.989 0.994 0.977 0.972 0.966 0.955 0.989 0.881
 9 0.994 0.983 0.960 0.949 0.977 0.949 0.989 0.915</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -844,13 +866,13 @@ results_acc_df:       0     1     2     3     4     5     6     7
 </section>
 <section id="finalizing-model" class="level2">
 <h2 class="anchored" data-anchor-id="finalizing-model">Finalizing model:</h2>
-<div id="ea795ceb" class="cell" data-execution_count="21">
+<div id="48d35ddb" class="cell" data-execution_count="21">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> RandomForestClassifier()</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>model.fit(x_train, y_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="24">
+<div class="cell-output cell-output-display" data-execution_count="21">
 <style>#sk-container-id-1 {
   /* Definition of color scheme common for light and dark mode */
   --sklearn-color-text: black;
@@ -1258,7 +1280,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>RandomForestClassifier()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked=""><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;RandomForestClassifier<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.ensemble.RandomForestClassifier.html">?<span>Documentation for RandomForestClassifier</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>RandomForestClassifier()</pre></div> </div></div></div></div>
 </div>
 </div>
-<div id="9480e638" class="cell" data-execution_count="22">
+<div id="e7497cb4" class="cell" data-execution_count="22">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>y_hat <span class="op">=</span> model.predict(x_test)</span>
@@ -1275,7 +1297,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
            5       1.00      1.00      1.00        20
            6       1.00      1.00      1.00        20
            7       1.00      1.00      1.00        20
-           8       1.00      1.00      1.00        20
+           8       0.95      0.95      0.95        20
            9       1.00      1.00      1.00        20
           10       1.00      1.00      1.00        20
           11       1.00      1.00      1.00        20
@@ -1287,7 +1309,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
           17       1.00      1.00      1.00        20
           18       1.00      1.00      1.00        20
           19       1.00      1.00      1.00        20
-          20       1.00      1.00      1.00        20
+          20       0.95      0.95      0.95        20
           21       1.00      1.00      1.00        20
 
     accuracy                           1.00       440
@@ -1296,7 +1318,7 @@ weighted avg       1.00      1.00      1.00       440
 </code></pre>
 </div>
 </div>
-<div id="694532ab" class="cell" data-execution_count="23">
+<div id="d7653f36" class="cell" data-execution_count="23">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_confusion_matrix(y_test, predictions):</span>
@@ -1323,6 +1345,13 @@ weighted avg       1.00      1.00      1.00       440
 </div>
 </div>
 </div>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion:</h2>
+<p>The primary objective of this analysis was to develop a robust predictive model for crop prediction. The Random Forest model achieved an accuracy of 99.4%. This results indicate that the model is effective in predicting crop yields. The model’s performance was validated using cross-validation techniques, yielding consistent results across different folds.</p>
+<p>Compared to other models such as Logistic Regression and Decision Trees, the Random Forest model demonstrated superior performance.</p>
+<p>The implementation of this Random Forest model can significantly improve agricultural planning and decision-making, leading to better resource allocation. For instance, the model can help in accurately predicting crop yields, thereby enhancing operational efficiency. In conclusion, the Random Forest model developed in this analysis provides a powerful tool for predicting crop yields, with substantial potential for practical application in agriculture.</p>
+<p>An app has also been developed which takes user input for features and then predicts the top five crops. The app also allows us to validate the model chosen by generating random values from the test dataset.</p>
 </section>
 
 </main>
