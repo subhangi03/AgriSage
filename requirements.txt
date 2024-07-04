@@ -1,0 +1,10 @@
+joblib==1.4.2
+matplotlib==3.9.0
+nbconvert==7.16.4
+nbformat==5.10.4
+numpy==1.26.4
+pandas==2.2.2
+scikit-learn==1.5.0
+scipy==1.13.1
+seaborn==0.13.2
+streamlit==1.35.0
