@@ -12,6 +12,7 @@ Additionally, a Streamlit application was developed to provide an interactive us
 [View the Quarto Report](https://your-username.github.io/your-repository/report.html)
 
 ## Streamlit App:
-![Alt text](C:\Users\subha\Desktop\AgriSage\Streamlit_screenshots\Screenshot(123).png)
+![Screenshot1](C:\Users\subha\Desktop\AgriSage\Streamlit_screenshots\Screenshot(123).png)
+![Screenshot2](Streamlit_screenshots\Screenshotsecond.png)
 
 
