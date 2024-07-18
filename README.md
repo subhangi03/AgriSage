@@ -12,13 +12,19 @@ The project report can be viewed [here](https://subhangi03.github.io/AgriSage/re
 
 ## Streamlit App
 Here is the working of the final Streamlit App explained via screenshots:
-
+### First look of the app:
 ![First look of the app](Streamlit_screenshots/Screenshotfirst.png)
+### App options:
 ![App options](Streamlit_screenshots/Screenshotsecond.png)
+### User input (7 such features):
 ![User input (7 such features)](Streamlit_screenshots/Screenshotthird.png)
+### Final user input:
 ![Final user input](Streamlit_screenshots/Screenshotfourth.png)
+### Prediction results:
 ![Results](Streamlit_screenshots/Screenshotappresults5.png)
+### Option to validate the model:
 ![Option to validate the model](Streamlit_screenshots/Screenshotsix.png)
+### Model validation results:
 ![Model validation results](Streamlit_screenshots/Screenshotmodelvalidationseven.png)
 
 ## Steps used to set up a virtual environment:
@@ -28,4 +34,4 @@ python3.12.3 -m venv agrisage.venv
 pip install -r requirements.txt
 
 ```
-
+I have used libraries like pandas, seaborn and matplot. For further information on the libraries used, check 'requirements.txt' file. 
