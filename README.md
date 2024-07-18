@@ -8,18 +8,18 @@ Multiple machine learning algorithms were evaluated, including decision trees, r
 Additionally, a Streamlit application was developed to provide an interactive user interface for stakeholders, enabling them to input specific agronomic conditions and receive crop recommendations with associated probabilities. This tool aims to support farmers and agricultural planners in making informed decisions to optimize crop yields and sustainability. Additionally, it ensures the validity of the model presented.
 
 ## Project Report
-The project report can be viewed [here](report\report\index.html).
+The project report can be viewed [here](https://subhangi03.github.io/AgriSage/report/report.html).
 
 ## Streamlit App
 Here is the working of the final Streamlit App explained via screenshots:
 
-![First look of the app](Streamlit_screenshots\Screenshotfirst.png)
-![App options](Streamlit_screenshots\Screenshotsecond.png)
-![User input (7 such features)](Streamlit_screenshots\Screenshotthird.png)
-![Final user input](Streamlit_screenshots\Screenshotfourth.png)
-![Results](Streamlit_screenshots\Screenshotappresults5.png)
-![Option to validate the model](Streamlit_screenshots\Screenshotsix.png)
-1[Model validation results](Streamlit_screenshots\Screenshotmodelvalidationseven.png)
+![First look of the app](Streamlit_screenshots/Screenshotfirst.png)
+![App options](Streamlit_screenshots/Screenshotsecond.png)
+![User input (7 such features)](Streamlit_screenshots/Screenshotthird.png)
+![Final user input](Streamlit_screenshots/Screenshotfourth.png)
+![Results](Streamlit_screenshots/Screenshotappresults5.png)
+![Option to validate the model](Streamlit_screenshots/Screenshotsix.png)
+1[Model validation results](Streamlit_screenshots/Screenshotmodelvalidationseven.png)
 
 ## Steps used to set up a virtual environment:
 ```
