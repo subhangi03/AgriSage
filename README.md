@@ -7,9 +7,8 @@ Multiple machine learning algorithms were evaluated, including decision trees, r
 
 Additionally, a Streamlit application was developed to provide an interactive user interface for stakeholders, enabling them to input specific agronomic conditions and receive crop recommendations with associated probabilities. This tool aims to support farmers and agricultural planners in making informed decisions to optimize crop yields and sustainability. Additionally, it ensures the validity of the model presented.
 
-## Report Link:
-[Link Text](URL)
-[View the Quarto Report](https://your-username.github.io/your-repository/report.html)
+## Project Report
+The project report can be viewed [here](report\report.html).
 
 ## Streamlit App:
 ![Screenshot1](C:\Users\subha\Desktop\AgriSage\Streamlit_screenshots\Screenshot(123).png)
