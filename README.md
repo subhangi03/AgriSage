@@ -10,7 +10,7 @@ Additionally, a Streamlit application was developed to provide an interactive us
 ## Project Report
 The project report can be viewed [here](report\report\index.html).
 
-## Streamlit App:
+## Streamlit App
 Here is the working of the final Streamlit App explained via screenshots:
 
 ![First look of the app](Streamlit_screenshots\Screenshotfirst.png)
@@ -20,4 +20,12 @@ Here is the working of the final Streamlit App explained via screenshots:
 ![Results](Streamlit_screenshots\Screenshotappresults5.png)
 ![Option to validate the model](Streamlit_screenshots\Screenshotsix.png)
 1[Model validation results](Streamlit_screenshots\Screenshotmodelvalidationseven.png)
+
+## Steps used to set up a virtual environment:
+```
+python3.12.3 -m venv agrisage.venv
+
+pip install -r requirements.txt
+
+```
 
