@@ -19,7 +19,7 @@ Here is the working of the final Streamlit App explained via screenshots:
 ![Final user input](Streamlit_screenshots/Screenshotfourth.png)
 ![Results](Streamlit_screenshots/Screenshotappresults5.png)
 ![Option to validate the model](Streamlit_screenshots/Screenshotsix.png)
-1[Model validation results](Streamlit_screenshots/Screenshotmodelvalidationseven.png)
+![Model validation results](Streamlit_screenshots/Screenshotmodelvalidationseven.png)
 
 ## Steps used to set up a virtual environment:
 ```

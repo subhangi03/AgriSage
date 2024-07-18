@@ -407,7 +407,7 @@ def transform_data_le(df, target, num_features):
 x_train, x_test, y_train, y_test, preprocessor, lbl_encoder = transform_data_le(raw_data, target, features)
 ```
 
-## Model comparison:
+## Model comparison
 
 ```{python}
 from sklearn.model_selection import StratifiedKFold, cross_validate
@@ -491,7 +491,7 @@ model_comparison(x_train, y_train, selected_models)
 
 After analyzing the above output, we can finalize Random Forets classifier model because of high accuracy and large size of our dataset.
 
-## Finalizing model:
+## Finalizing model
 
 ```{python}
 model = RandomForestClassifier()
@@ -521,7 +521,7 @@ def plot_confusion_matrix(y_test, predictions):
 plot_confusion_matrix(y_test, y_hat)
 ```
 
-## Conclusion:
+## Conclusion
 
 The primary objective of this analysis was to develop a robust predictive model for crop prediction. The Random Forest model achieved an accuracy of 99.4%. This results indicate that the model is effective in predicting crop yields. The model's performance was validated using cross-validation techniques, yielding consistent results across different folds.
 
@@ -530,3 +530,9 @@ Compared to other models such as Logistic Regression and Decision Trees, the Ran
 The implementation of this Random Forest model can significantly improve agricultural planning and decision-making, leading to better resource allocation. For instance, the model can help in accurately predicting crop yields, thereby enhancing operational efficiency. In conclusion, the Random Forest model developed in this analysis provides a powerful tool for predicting crop yields, with substantial potential for practical application in agriculture. 
 
 An app has also been developed which takes user input for features and then predicts the top five crops. The app also allows us to validate the model chosen by generating random values from the test dataset. 
+
+## Further links
+
+You can view the project on GitHub for more details.
+
+[View the project on GitHub](https://github.com/subhangi03/AgriSage)
